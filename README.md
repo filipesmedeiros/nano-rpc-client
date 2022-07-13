@@ -2,7 +2,7 @@
 
 # Nano RPC client
 
-A simple and strongly typed client for Nano's RPC, written in Typescript.
+A simple and strongly typed client for [Nano's RPC](https://docs.nano.org/commands/rpc-protocol/), written in Typescript.
 
 ## Usage
 
@@ -69,9 +69,9 @@ try {
 
 - To be the _de facto_ JS RPC client, with strong argument typing and great autocomplete
 - To eventually be included as an official package of the nano ecosystem (meaning, distributed under an easily recognizable name like `@nano/rpc` or `@nano-utils/rpc` or something like that)
-- To support the most current version of the RPC spec
+- To support the most current version of the [RPC spec](https://docs.nano.org/commands/rpc-protocol/)
 - In the future, validate arguments before the request is made (for example, validate nano address strings or number strings)
 
 ## Non-goals
 
-- To support versions of the RPC spec other than latest
+- To support versions of the [RPC spec](https://docs.nano.org/commands/rpc-protocol/) other than latest
