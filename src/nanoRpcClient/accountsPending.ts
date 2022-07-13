@@ -57,7 +57,7 @@ export default async function accountsPending<
     >
   >(
     {
-      action: 'accounts_frontiers',
+      action: 'accounts_pending',
       data: {
         accounts,
         ...options,
