@@ -1,7 +1,12 @@
-import { RpcAction, RpcResponse } from "../../types/types";
-import { HttpError } from "../httpError";
-import { RpcError } from "../rpcError";
-import { keysToSnake, replacer, keysToCamel, reviver } from "../transformData";
+import { RpcAction, RpcResponse } from "../types/types";
+import { HttpError } from "../lib/httpError";
+import { RpcError } from "../lib/rpcError";
+import {
+    keysToSnake,
+    replacer,
+    keysToCamel,
+    reviver,
+} from "../lib/transformData";
 
 export class NanoFetcher {
     constructor(
