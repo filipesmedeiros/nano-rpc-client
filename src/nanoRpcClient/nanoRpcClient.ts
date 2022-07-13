@@ -1,4 +1,5 @@
 import accountBalance from './accountBalance'
+import accountBlock from './accountBlock'
 import accountBlockCount from './accountBlockCount'
 import accountGet from './accountGet'
 import accountHistory from './accountHistory'
@@ -9,6 +10,7 @@ import accountWeight from './accountWeight'
 import accountsBalances from './accountsBalances'
 import accountsFrontiers from './accountsFrontiers'
 import accountsPending from './accountsPending'
+import accountsRepresentatives from './accountsRepresentatives'
 import { NanoFetcher } from './fetcher'
 
 export class NanoRpcClient extends NanoFetcher {
@@ -27,4 +29,6 @@ export class NanoRpcClient extends NanoFetcher {
   public accountsBalances = accountsBalances
   public accountsFrontiers = accountsFrontiers
   public accountsPending = accountsPending
+  public accountsRepresentatives = accountsRepresentatives
+  public accountBlock = accountBlock
 }
