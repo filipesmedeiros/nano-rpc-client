@@ -18,7 +18,7 @@ export class NanoFetcher {
   ) {}
 
   protected async fetch<Data>(
-    request: { action: RpcAction; data: any },
+    request: { action: RpcAction; data?: any },
     options?: { abortSignal: AbortSignal }
   ) {
     const response = await this.fetcher(this.rpcBaseUrl, {
