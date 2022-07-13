@@ -1,20 +1,16 @@
-import { NanoAccountWeight } from "./accountWeight";
+import { NanoAccountsBalances } from "./accountsBalances";
 
-export type AccountsBalancesResponseBalances<
+export type AccountsFrontiersResponseFrontiers<
     Accounts extends readonly string[]
 > = {
-    [account in Accounts[number]]: {
-        balance: bigint;
-        pending: bigint;
-        receivable: bigint;
-    };
+    [account in Accounts[number]]: string;
 };
 
 export interface AccountsBalancesResponse<Accounts extends readonly string[]> {
-    balances: AccountsBalancesResponseBalances<Accounts>;
+    frontiers: AccountsFrontiersResponseFrontiers<Accounts>;
 }
 
-export class NanoAccountsBalances extends NanoAccountWeight {
+export class NanoAccountsFrontiers extends NanoAccountsBalances {
     constructor(rpcBaseUrl: string, fetcher: typeof fetch) {
         super(rpcBaseUrl, fetcher);
     }
@@ -25,13 +21,13 @@ export class NanoAccountsBalances extends NanoAccountWeight {
      * @param requestOptions
      * @returns Account balances
      */
-    async accountsBalances<Accounts extends readonly string[]>(
+    async accountsFrontiers<Accounts extends readonly string[]>(
         accounts: Accounts,
         requestOptions?: { abortSignal: AbortSignal }
     ) {
         return this.fetch<AccountsBalancesResponse<Accounts>>(
             {
-                action: "accounts_balances",
+                action: "accounts_frontiers",
                 data: {
                     accounts,
                 },
