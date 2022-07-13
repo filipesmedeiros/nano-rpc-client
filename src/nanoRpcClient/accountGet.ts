@@ -5,7 +5,7 @@ export interface AccountGetResponse {
 }
 
 export class NanoAccountGet extends NanoAccountBlockCount {
-  constructor(rpcBaseUrl: string, fetcher: typeof fetch) {
+  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
     super(rpcBaseUrl, fetcher)
   }
 

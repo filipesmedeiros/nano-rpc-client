@@ -42,7 +42,7 @@ export type AccountInfoResponse<
     : {})
 
 export class NanoAccountInfo extends NanoAccountHistory {
-  constructor(rpcBaseUrl: string, fetcher: typeof fetch) {
+  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
     super(rpcBaseUrl, fetcher)
   }
 

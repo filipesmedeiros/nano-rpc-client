@@ -5,7 +5,7 @@ export interface AccountRepresentativeResponse {
 }
 
 export class NanoAccountRepresentative extends NanoAccountKey {
-  constructor(rpcBaseUrl: string, fetcher: typeof fetch) {
+  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
     super(rpcBaseUrl, fetcher)
   }
 

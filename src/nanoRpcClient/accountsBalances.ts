@@ -15,7 +15,7 @@ export interface AccountsBalancesResponse<Accounts extends readonly string[]> {
 }
 
 export class NanoAccountsBalances extends NanoAccountWeight {
-  constructor(rpcBaseUrl: string, fetcher: typeof fetch) {
+  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
     super(rpcBaseUrl, fetcher)
   }
 

@@ -16,41 +16,33 @@ const toCamel = (string: string) =>
 const toSnake = (string: string) =>
   string.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`)
 
-export const keysToCamel = (object: any) => {
+const transformObjectKeys = (
+  object: Record<string, any>,
+  transformer: (key: string) => string
+): any => {
   if (isObject(object)) {
-    const n = {}
+    const newObject: Record<string, any> = {}
 
-    Object.keys(object).forEach(k => {
-      n[toCamel(k)] = keysToCamel(object[k])
+    Object.keys(object).forEach(key => {
+      newObject[transformer(key)] = transformObjectKeys(
+        object[key],
+        transformer
+      )
     })
 
-    return n
+    return newObject
   } else if (Array.isArray(object)) {
-    return object.map(i => {
-      return keysToCamel(i)
-    })
+    return object.map(item => transformObjectKeys(item, transformer))
   }
 
   return object
 }
 
-export const keysToSnake = (object: any) => {
-  if (isObject(object)) {
-    const n = {}
+export const keysToCamel = (object: Record<string, any>) =>
+  transformObjectKeys(object, toCamel)
 
-    Object.keys(object).forEach(k => {
-      n[toSnake(k)] = keysToSnake(object[k])
-    })
-
-    return n
-  } else if (Array.isArray(object)) {
-    return object.map(i => {
-      return keysToSnake(i)
-    })
-  }
-
-  return object
-}
+export const keysToSnake = (object: Record<string, any>) =>
+  transformObjectKeys(object, toSnake)
 
 const isNumberString = (
   value: number | null | string | boolean

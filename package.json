@@ -1,11 +1,16 @@
 {
   "name": "nano-rpc-client",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
+  "browser": "dist/browser.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
-    "build": "esbuild",
+    "build": "node ./scripts/build.js && tsc",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "keywords": [

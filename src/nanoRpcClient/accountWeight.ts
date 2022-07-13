@@ -5,7 +5,7 @@ export interface AccountWeightResponse {
 }
 
 export class NanoAccountWeight extends NanoAccountRepresentative {
-  constructor(rpcBaseUrl: string, fetcher: typeof fetch) {
+  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
     super(rpcBaseUrl, fetcher)
   }
 

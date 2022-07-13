@@ -52,7 +52,7 @@ export interface AccountHistoryResponseRaw {
 }
 
 export class NanoAccountHistory extends NanoAccountGet {
-  constructor(rpcBaseUrl: string, fetcher: typeof fetch) {
+  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
     super(rpcBaseUrl, fetcher)
   }
 

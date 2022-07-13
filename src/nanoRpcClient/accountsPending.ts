@@ -26,7 +26,7 @@ export interface AccountsPendingResponse<
 }
 
 export class NanoAccountsPending extends NanoAccountsFrontiers {
-  constructor(rpcBaseUrl: string, fetcher: typeof fetch) {
+  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
     super(rpcBaseUrl, fetcher)
   }
 

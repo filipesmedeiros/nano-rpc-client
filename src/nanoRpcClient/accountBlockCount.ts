@@ -5,7 +5,7 @@ export interface AccountBlockCountResponse {
 }
 
 export class NanoAccountBlockCount extends NanoAccountBalance {
-  constructor(rpcBaseUrl: string, fetcher: typeof fetch) {
+  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
     super(rpcBaseUrl, fetcher)
   }
 

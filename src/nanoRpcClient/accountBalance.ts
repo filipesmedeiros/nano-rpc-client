@@ -7,7 +7,7 @@ export interface AccountBalanceResponse {
 }
 
 export class NanoAccountBalance extends NanoFetcher {
-  constructor(rpcBaseUrl: string, fetcher: typeof fetch) {
+  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
     super(rpcBaseUrl, fetcher)
   }
 
