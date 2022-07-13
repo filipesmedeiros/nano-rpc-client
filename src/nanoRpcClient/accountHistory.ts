@@ -1,105 +1,63 @@
-import { HttpError } from '../lib/httpError'
-import { RpcError } from '../lib/rpcError'
-import {
-  keysToCamel,
-  keysToSnake,
-  replacer,
-  reviver,
-} from '../lib/transformData'
-import {
-  BlockType,
-  BooleanString,
-  NumberString,
-  RpcAction,
-  RpcResponse,
-} from '../types/types'
-import { NanoAccountGet } from './accountGet'
+import { BlockType, BooleanString, NumberString } from '../types/types'
+import { NanoFetcher } from './fetcher'
 
-export interface AccountHistoryResponse {
+export interface AccountHistoryResponse<Raw extends boolean = false> {
   account: string
-  history: {
-    type: BlockType
-    account: string
-    amount: NumberString
-    localTimestamp: NumberString
-    height: NumberString
-    hash: string
-    confirmed: BooleanString
-  }[]
+  history: (Raw extends true
+    ? {
+        type: 'state'
+        subtype: BlockType
+        account: string
+        amount: NumberString
+        localTimestamp: NumberString
+        height: NumberString
+        hash: string
+        confirmed: BooleanString
+        previous: string
+        representative: string
+        balance: NumberString
+        link: string
+        linkAsAccount: string
+        signature: string
+        work: string
+      }
+    : {
+        type: BlockType
+        account: string
+        amount: NumberString
+        localTimestamp: NumberString
+        height: NumberString
+        hash: string
+        confirmed: BooleanString
+      })[]
   previous: string
 }
 
-export interface AccountHistoryResponseRaw {
-  account: string
-  history: {
-    type: 'state'
-    subtype: BlockType
-    account: string
-    amount: NumberString
-    localTimestamp: NumberString
-    height: NumberString
-    hash: string
-    confirmed: BooleanString
-    previous: string
-    representative: string
-    balance: NumberString
-    link: string
-    linkAsAccount: string
-    signature: string
-    work: string
-  }[]
-  previous: string
-}
-
-export class NanoAccountHistory extends NanoAccountGet {
-  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
-    super(rpcBaseUrl, fetcher)
+export default async function accountHistory<
+  Options extends {
+    count?: number
+    raw?: true
+    head?: string
+    offset?: number
+    reverse?: true
+    accountFilter?: string[]
   }
-
-  async accountHistory(
-    account: string,
-    options: {
-      count?: number | string
-      raw: true
-      head?: string
-      offset?: number | string
-      reverse?: true
-      accountFilter?: string[]
-    },
-    requestOptions?: { abortSignal: AbortSignal }
-  ): Promise<AccountHistoryResponseRaw>
-  async accountHistory(
-    account: string,
-    options?: {
-      count?: number | string
-      head?: string
-      offset?: number | string
-      reverse?: true
-      accountFilter?: string[]
-    },
-    requestOptions?: { abortSignal: AbortSignal }
-  ): Promise<AccountHistoryResponse>
-  async accountHistory(
-    account: string,
-    options?: {
-      count?: number | string
-      raw?: true
-      head?: string
-      offset?: number | string
-      reverse?: true
-      accountFilter?: string[]
-    },
-    requestOptions?: { abortSignal: AbortSignal }
-  ) {
-    return this.fetch(
-      {
-        action: 'account_history',
-        data: {
-          account,
-          ...options,
-        },
+>(
+  this: NanoFetcher,
+  account: string,
+  options?: Options,
+  requestOptions?: { abortSignal: AbortSignal }
+) {
+  return this.fetch<
+    AccountHistoryResponse<Options['raw'] extends true ? true : false>
+  >(
+    {
+      action: 'account_history',
+      data: {
+        account,
+        ...options,
       },
-      requestOptions
-    )
-  }
+    },
+    requestOptions
+  )
 }

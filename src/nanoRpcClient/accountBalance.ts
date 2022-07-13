@@ -6,27 +6,22 @@ export interface AccountBalanceResponse {
   receivable: bigint
 }
 
-export class NanoAccountBalance extends NanoFetcher {
-  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
-    super(rpcBaseUrl, fetcher)
-  }
-
-  async accountBalance(
-    account: string,
-    options?: {
-      includeOnlyConfirmed?: true
-    },
-    requestOptions?: { abortSignal: AbortSignal }
-  ) {
-    return this.fetch<AccountBalanceResponse>(
-      {
-        action: 'account_balance',
-        data: {
-          account,
-          ...options,
-        },
+export default async function accountBalance(
+  this: NanoFetcher,
+  account: string,
+  options?: {
+    includeOnlyConfirmed?: true
+  },
+  requestOptions?: { abortSignal: AbortSignal }
+) {
+  return this.fetch<AccountBalanceResponse>(
+    {
+      action: 'account_balance',
+      data: {
+        account,
+        ...options,
       },
-      requestOptions
-    )
-  }
+    },
+    requestOptions
+  )
 }

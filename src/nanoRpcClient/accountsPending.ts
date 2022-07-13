@@ -1,4 +1,4 @@
-import { NanoAccountsFrontiers } from './accountsFrontiers'
+import { NanoFetcher } from './fetcher'
 
 export type AccountsPendingResponsePending<
   Accounts extends readonly string[],
@@ -25,49 +25,44 @@ export interface AccountsPendingResponse<
   blocks: AccountsPendingResponsePending<Accounts, Options>
 }
 
-export class NanoAccountsPending extends NanoAccountsFrontiers {
-  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
-    super(rpcBaseUrl, fetcher)
+/**
+ *
+ * @param accounts use `as const` to enable autocomplete on the return data
+ * @param requestOptions
+ * @returns Account balances
+ */
+export default async function accountsPending<
+  Accounts extends readonly string[],
+  Options extends {
+    count?: number
+    threshold?: bigint
+    source?: true
+    includeActive?: true
+    sorting?: true
+    includeOnlyConfirmed?: true
   }
-
-  /**
-   *
-   * @param accounts use `as const` to enable autocomplete on the return data
-   * @param requestOptions
-   * @returns Account balances
-   */
-  async accountsPending<
-    Accounts extends readonly string[],
-    Options extends {
-      count?: number
-      threshold?: bigint
-      source?: true
-      includeActive?: true
-      sorting?: true
-      includeOnlyConfirmed?: true
-    }
-  >(
-    accounts: Accounts,
-    options?: Options,
-    requestOptions?: { abortSignal: AbortSignal }
-  ) {
-    return this.fetch<
-      AccountsPendingResponse<
-        Accounts,
-        {
-          source: Options['source'] extends true ? true : undefined
-          threshold: Options['threshold'] extends bigint ? true : undefined
-        }
-      >
-    >(
+>(
+  this: NanoFetcher,
+  accounts: Accounts,
+  options?: Options,
+  requestOptions?: { abortSignal: AbortSignal }
+) {
+  return this.fetch<
+    AccountsPendingResponse<
+      Accounts,
       {
-        action: 'accounts_frontiers',
-        data: {
-          accounts,
-          ...options,
-        },
+        source: Options['source'] extends true ? true : undefined
+        threshold: Options['threshold'] extends bigint ? true : undefined
+      }
+    >
+  >(
+    {
+      action: 'accounts_frontiers',
+      data: {
+        accounts,
+        ...options,
       },
-      requestOptions
-    )
-  }
+    },
+    requestOptions
+  )
 }

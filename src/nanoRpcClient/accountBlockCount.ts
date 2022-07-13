@@ -1,26 +1,21 @@
-import { NanoAccountBalance } from './accountBalance'
+import { NanoFetcher } from './fetcher'
 
 export interface AccountBlockCountResponse {
   blockCount: bigint
 }
 
-export class NanoAccountBlockCount extends NanoAccountBalance {
-  constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
-    super(rpcBaseUrl, fetcher)
-  }
-
-  async accountBlockCount(
-    account: string,
-    requestOptions?: { abortSignal: AbortSignal }
-  ) {
-    return this.fetch<AccountBlockCountResponse>(
-      {
-        action: 'account_block_count',
-        data: {
-          account,
-        },
+export default async function accountBlockCount(
+  this: NanoFetcher,
+  account: string,
+  requestOptions?: { abortSignal: AbortSignal }
+) {
+  return this.fetch<AccountBlockCountResponse>(
+    {
+      action: 'account_block_count',
+      data: {
+        account,
       },
-      requestOptions
-    )
-  }
+    },
+    requestOptions
+  )
 }
