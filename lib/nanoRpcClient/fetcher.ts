@@ -5,8 +5,8 @@ import { keysToSnake, replacer, keysToCamel, reviver } from "../transformData";
 
 export class NanoFetcher {
     constructor(
-        protected rpcBaseUrl: string,
-        protected fetcher: typeof fetch
+        protected rpcBaseUrl = "http://localhost:7076",
+        protected fetcher = fetch
     ) {}
 
     protected async fetch<Data>(
