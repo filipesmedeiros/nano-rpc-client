@@ -11,7 +11,10 @@ import { RpcAction, RpcResponse } from '../types/types'
 export class NanoFetcher {
   constructor(
     protected rpcBaseUrl = 'http://localhost:7076',
-    protected fetcher = fetch
+    protected fetcher = (
+      input: RequestInfo | URL,
+      init?: RequestInit | undefined
+    ) => fetch(input, init)
   ) {}
 
   protected async fetch<Data>(
@@ -19,6 +22,7 @@ export class NanoFetcher {
     options?: { abortSignal: AbortSignal }
   ) {
     const response = await this.fetcher(this.rpcBaseUrl, {
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       signal: options?.abortSignal,
       body: JSON.stringify(
