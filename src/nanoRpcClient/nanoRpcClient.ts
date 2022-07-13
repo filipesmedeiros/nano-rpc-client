@@ -23,8 +23,8 @@ export class NanoRpcClient extends NanoFetcher {
   public accountInfo = accountInfo
   public accountKey = accountKey
   public accountRepresentative = accountRepresentative
+  public accountWeight = accountWeight
   public accountsBalances = accountsBalances
   public accountsFrontiers = accountsFrontiers
   public accountsPending = accountsPending
-  public accountWeight = accountWeight
 }
