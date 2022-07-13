@@ -1,7 +1,7 @@
 import { build } from 'esbuild'
 
 const sharedConfig = {
-  entryPoints: ['./src/nanoRpcClient/nanoRpcClient.ts'],
+  entryPoints: ['./src/index.ts'],
   bundle: true,
   external: ['./node_modules/*'],
 }
