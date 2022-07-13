@@ -9,15 +9,12 @@ export class NanoAccountGet extends NanoAccountBlockCount {
     super(rpcBaseUrl, fetcher)
   }
 
-  async accountGet(
-    account: string,
-    requestOptions?: { abortSignal: AbortSignal }
-  ) {
+  async accountGet(key: string, requestOptions?: { abortSignal: AbortSignal }) {
     return this.fetch<AccountGetResponse>(
       {
         action: 'account_get',
         data: {
-          account,
+          key,
         },
       },
       requestOptions
