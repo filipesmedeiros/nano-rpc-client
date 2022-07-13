@@ -4,7 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {},
-    "keywords": [],
+    "keywords": [
+        "nano",
+        "nanocurrency",
+        "digital currency",
+        "decentralized currency"
+    ],
     "author": "",
     "license": "ISC",
     "devDependencies": {
