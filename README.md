@@ -75,7 +75,3 @@ try {
 ## Non-goals
 
 - To support versions of the RPC spec other than latest
-
-```
-
-```
