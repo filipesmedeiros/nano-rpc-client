@@ -47,7 +47,7 @@ You can pass an `AbortSignal` to all calls to cancel them
 ```typescript
 const controller = new AbortController()
 
-const confirmedInfo = await client.accountInfo('nano_1pnano1yzoxyk11geczosh1bwh97w5t1kfmokwz8hkgiy55h6a7rz6dyr1tm', { includeConfirmed: true }, { abortSignal: controller.signal })
+const confirmedInfo = await client.accountInfo('nano_1pnano1yzoxyk11geczosh1bwh97w5t1kfmokwz8hkgiy55h6a7rz6dyr1tm', undefined, { abortSignal: controller.signal })
 
 if('someCondition')
     controller.abort()
@@ -57,7 +57,7 @@ if('someCondition')
 
 Errors in the RPC command (normally returned in the body) are thrown as `RpcError`s that contain a `message`
 
-````typescript
+```typescript
 try {
     const info = await client.accountInfo('')
 } catch (e) {
@@ -75,4 +75,7 @@ try {
 ## Non-goals
 
 - To support versions of the RPC spec other than latest
-````
+
+```
+
+```
