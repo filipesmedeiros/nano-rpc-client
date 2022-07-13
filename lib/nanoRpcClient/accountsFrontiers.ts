@@ -6,7 +6,7 @@ export type AccountsFrontiersResponseFrontiers<
     [account in Accounts[number]]: string;
 };
 
-export interface AccountsBalancesResponse<Accounts extends readonly string[]> {
+export interface AccountsFrontiersResponse<Accounts extends readonly string[]> {
     frontiers: AccountsFrontiersResponseFrontiers<Accounts>;
 }
 
@@ -25,7 +25,7 @@ export class NanoAccountsFrontiers extends NanoAccountsBalances {
         accounts: Accounts,
         requestOptions?: { abortSignal: AbortSignal }
     ) {
-        return this.fetch<AccountsBalancesResponse<Accounts>>(
+        return this.fetch<AccountsFrontiersResponse<Accounts>>(
             {
                 action: "accounts_frontiers",
                 data: {
