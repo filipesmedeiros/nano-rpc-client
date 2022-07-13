@@ -1,6 +1,6 @@
 {
   "name": "nano-rpc-client",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
@@ -10,6 +10,8 @@
     "dist/*"
   ],
   "scripts": {
+    "prepublish": "pnpm build",
+    "publish": "npm publish",
     "build": "node ./scripts/build.js && tsc",
     "format": "prettier --write \"src/**/*.ts\""
   },
