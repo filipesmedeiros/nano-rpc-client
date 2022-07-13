@@ -1,1 +1,1 @@
-export { NanoRpcClient } from './nanoRpcClient/nanoRpcClient'
+export { NanoRpcClient as default } from './nanoRpcClient/nanoRpcClient'
