@@ -77,7 +77,6 @@ import unopened from './commands/unopened'
 import uptime from './commands/uptime'
 import validateAccountNumber from './commands/validateAccountNumber'
 import version from './commands/version'
-import wallet from './commands/wallet'
 import walletAdd from './commands/walletAdd'
 import walletAddWatch from './commands/walletAddWatch'
 import walletBalances from './commands/walletBalances'
@@ -188,7 +187,6 @@ export class NanoRpcClient extends NanoFetcher {
   public accountRemove = accountRemove
   public accountRepresentativeSet = accountRepresentativeSet
   public accountsCreate = accountsCreate
-  public wallet = wallet
   public passwordChange = passwordChange
   public passwordEnter = passwordEnter
   public passwordValid = passwordValid
