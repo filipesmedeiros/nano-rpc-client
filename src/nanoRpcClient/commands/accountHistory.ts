@@ -1,5 +1,5 @@
+import { BlockType, BooleanString, NumberString } from '../../types/types'
 import { NanoFetcher } from '../fetcher'
-import { BlockType, BooleanString, NumberString } from '../types/types'
 
 export interface AccountHistoryResponse<Raw extends boolean = false> {
   account: string
