@@ -33,6 +33,7 @@ export default function blockInfo(
       action: 'block_info',
       data: {
         hash,
+        jsonBlock: true,
       },
     },
     requestOptions
