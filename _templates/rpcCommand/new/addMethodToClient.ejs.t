@@ -1,9 +1,8 @@
 ---
 inject: true
 to: src/nanoRpcClient/nanoRpcClient.ts
-after: public
+before: // here
 skip_if: h.changeCase.camel(name)
 ---
-<% camelName = h.changeCase.camel(name) %>
-public <%= camelName %> = <%= camelName %>
+public <%= h.changeCase.camel(name) %> = <%= h.changeCase.camel(name) %>
 

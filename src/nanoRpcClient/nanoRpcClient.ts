@@ -33,4 +33,4 @@ export class NanoRpcClient extends NanoFetcher {
   public accountsRepresentatives = accountsRepresentatives
   public blockAccount = blockAccount
   public blockConfirm = blockConfirm
-}
+} // here
