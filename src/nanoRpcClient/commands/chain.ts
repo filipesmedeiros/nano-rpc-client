@@ -1,21 +1,21 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface ChainResponse {
-  RESPONSE_TYPE: any
+  blocks: string[]
 }
 
 export default function chain(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  block: string,
+  options?: { count?: number; offset?: number; reverse?: true },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<ChainResponse>(
     {
       action: 'chain',
       data: {
-        MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        block,
+        ...options,
       },
     },
     requestOptions
