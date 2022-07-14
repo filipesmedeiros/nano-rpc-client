@@ -1,21 +1,47 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface BlockCreateResponse {
-  RESPONSE_TYPE: any
+  hash: string
+  difficulty: string
+  block: {
+    type: 'state'
+    account: string
+    previous: string
+    representative: string
+    balance: bigint
+    link: string
+    link_as_account: string
+    signature: string
+    work: string
+  }
 }
 
 export default function blockCreate(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  block: {
+    balance: bigint
+    wallet?: string
+    account?: string
+    key?: string
+    source?: string
+    destination?: string
+    link?: string
+    representative: string
+    previous: string
+  },
+  options?:
+    | {
+        work: string
+      }
+    | { difficulty?: string; version?: string },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<BlockCreateResponse>(
     {
       action: 'block_create',
       data: {
-        MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...block,
+        ...options,
       },
     },
     requestOptions
