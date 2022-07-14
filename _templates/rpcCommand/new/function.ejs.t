@@ -2,7 +2,7 @@
 to: src/nanoRpcClient/<%= h.changeCase.camel(name) %>.ts
 ---
 
-import { NanoFetcher } from './fetcher'
+import { NanoFetcher } from '../fetcher'
 <% PascalName = h.changeCase.pascal(name) %>
 export interface <%= PascalName %>Response {
   RESPONSE_TYPE: any
