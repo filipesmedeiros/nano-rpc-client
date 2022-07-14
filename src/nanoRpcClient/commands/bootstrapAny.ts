@@ -6,11 +6,15 @@ export interface BootstrapAnyResponse {
 
 export default function bootstrapAny(
   this: NanoFetcher,
+  options?: { id?: string; force?: true; account?: string },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<BootstrapAnyResponse>(
     {
       action: 'bootstrap_any',
+      data: {
+        ...options,
+      },
     },
     requestOptions
   )
