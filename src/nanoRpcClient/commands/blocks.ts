@@ -1,21 +1,30 @@
 import { NanoFetcher } from '../fetcher'
 
-export interface BlocksResponse {
-  RESPONSE_TYPE: any
+export type BlocksResponse<Hashes extends readonly string[]> = {
+  [hash in Hashes[number]]: {
+    type: 'state'
+    account: string
+    previous: string
+    representative: string
+    balance: bigint
+    link: string
+    link_as_account: string
+    signature: string
+    work: string
+  }
 }
 
 export default function blocks(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  hashes: readonly string[],
   requestOptions?: { abortSignal: AbortSignal }
 ) {
-  return this.fetch<BlocksResponse>(
+  return this.fetch<BlocksResponse<typeof hashes>>(
     {
       action: 'blocks',
       data: {
-        MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        hashes,
+        jsonBlock: true,
       },
     },
     requestOptions
