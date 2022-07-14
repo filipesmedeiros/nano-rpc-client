@@ -10,9 +10,7 @@ export interface AccountsPendingResponse<Accounts extends readonly string[]> {
  * @param requestOptions
  * @returns Account balances
  */
-export default async function accountsPending<
-  Accounts extends readonly string[]
->(
+export default function accountsPending<Accounts extends readonly string[]>(
   this: NanoFetcher,
   accounts: Accounts,
   requestOptions?: { abortSignal: AbortSignal }

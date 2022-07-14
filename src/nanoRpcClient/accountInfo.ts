@@ -41,7 +41,7 @@ export type AccountInfoResponse<
           : {})
     : {})
 
-export default async function accountInfo<
+export default function accountInfo<
   Options extends {
     representative?: true
     receivable?: true

@@ -4,7 +4,7 @@ export interface AccountKeyResponse {
   key: string
 }
 
-export default async function accountKey(
+export default function accountKey(
   this: NanoFetcher,
   account: string,
   requestOptions?: { abortSignal: AbortSignal }

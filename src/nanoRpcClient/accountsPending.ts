@@ -31,7 +31,7 @@ export interface AccountsPendingResponse<
  * @param requestOptions
  * @returns Account balances
  */
-export default async function accountsPending<
+export default function accountsPending<
   Accounts extends readonly string[],
   Options extends {
     count?: number

@@ -11,6 +11,7 @@ import accountsFrontiers from './accountsFrontiers'
 import accountsPending from './accountsPending'
 import accountsRepresentatives from './accountsRepresentatives'
 import blockAccount from './blockAccount'
+import blockConfirm from './blockConfirm'
 import { NanoFetcher } from './fetcher'
 
 export class NanoRpcClient extends NanoFetcher {
@@ -31,4 +32,5 @@ export class NanoRpcClient extends NanoFetcher {
   public accountsPending = accountsPending
   public accountsRepresentatives = accountsRepresentatives
   public blockAccount = blockAccount
+  public blockConfirm = blockConfirm
 }

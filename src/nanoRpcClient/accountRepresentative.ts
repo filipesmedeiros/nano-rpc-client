@@ -4,7 +4,7 @@ export interface AccountRepresentativeResponse {
   representative: string
 }
 
-export default async function accountRepresentative(
+export default function accountRepresentative(
   this: NanoFetcher,
   account: string,
   requestOptions?: { abortSignal: AbortSignal }

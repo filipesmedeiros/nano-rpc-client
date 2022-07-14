@@ -4,7 +4,7 @@ export interface AccountBlockCountResponse {
   blockCount: bigint
 }
 
-export default async function accountBlockCount(
+export default function accountBlockCount(
   this: NanoFetcher,
   account: string,
   requestOptions?: { abortSignal: AbortSignal }

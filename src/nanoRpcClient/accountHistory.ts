@@ -33,7 +33,7 @@ export interface AccountHistoryResponse<Raw extends boolean = false> {
   previous: string
 }
 
-export default async function accountHistory<
+export default function accountHistory<
   Options extends {
     count?: number
     raw?: true

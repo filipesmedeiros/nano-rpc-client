@@ -4,7 +4,7 @@ export interface AccountWeightResponse {
   weight: bigint
 }
 
-export default async function accountWeight(
+export default function accountWeight(
   this: NanoFetcher,
   account: string,
   requestOptions?: { abortSignal: AbortSignal }

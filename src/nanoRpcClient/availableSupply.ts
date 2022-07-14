@@ -4,7 +4,7 @@ export interface AvailableSupplyResponse {
   available: bigint
 }
 
-export default async function availableSupply(
+export default function availableSupply(
   this: NanoFetcher,
   requestOptions?: { abortSignal: AbortSignal }
 ) {

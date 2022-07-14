@@ -1,17 +1,17 @@
 import { NanoFetcher } from './fetcher'
 
-export interface BlockAccountResponse {
-  account: bigint
+export interface BlockConfirmResponse {
+  started: 1
 }
 
-export default function blockAccount(
+export default function blockConfirm(
   this: NanoFetcher,
   hash: string,
   requestOptions?: { abortSignal: AbortSignal }
 ) {
-  return this.fetch<BlockAccountResponse>(
+  return this.fetch<BlockConfirmResponse>(
     {
-      action: 'block_account',
+      action: 'block_confirm',
       data: {
         hash,
       },

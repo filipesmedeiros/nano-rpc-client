@@ -4,7 +4,7 @@ export interface AccountGetResponse {
   account: string
 }
 
-export default async function accountGet(
+export default function accountGet(
   this: NanoFetcher,
   key: string,
   requestOptions?: { abortSignal: AbortSignal }

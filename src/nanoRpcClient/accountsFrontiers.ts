@@ -16,9 +16,7 @@ export interface AccountsFrontiersResponse<Accounts extends readonly string[]> {
  * @param requestOptions
  * @returns Account balances
  */
-export default async function accountsFrontiers<
-  Accounts extends readonly string[]
->(
+export default function accountsFrontiers<Accounts extends readonly string[]>(
   this: NanoFetcher,
   accounts: Accounts,
   requestOptions?: { abortSignal: AbortSignal }

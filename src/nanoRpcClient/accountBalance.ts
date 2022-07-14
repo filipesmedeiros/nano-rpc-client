@@ -6,7 +6,7 @@ export interface AccountBalanceResponse {
   receivable: bigint
 }
 
-export default async function accountBalance(
+export default function accountBalance(
   this: NanoFetcher,
   account: string,
   options?: {
