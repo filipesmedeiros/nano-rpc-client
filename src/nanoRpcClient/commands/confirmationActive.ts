@@ -1,21 +1,21 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface ConfirmationActiveResponse {
-  RESPONSE_TYPE: any
+  confirmations: string[]
+  unconfirmed: bigint
+  confirmed: bigint
 }
 
 export default function confirmationActive(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  announcements?: number,
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<ConfirmationActiveResponse>(
     {
       action: 'confirmation_active',
       data: {
-        MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        announcements,
       },
     },
     requestOptions

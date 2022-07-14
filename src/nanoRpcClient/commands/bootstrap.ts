@@ -1,7 +1,7 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface BootstrapResponse {
-  RESPONSE_TYPE: any
+  success: ''
 }
 
 export default function bootstrap(

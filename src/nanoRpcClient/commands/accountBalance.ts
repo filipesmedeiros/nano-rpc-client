@@ -9,9 +9,7 @@ export interface AccountBalanceResponse {
 export default function accountBalance(
   this: NanoFetcher,
   account: string,
-  options?: {
-    includeOnlyConfirmed?: true
-  },
+  includeOnlyConfirmed?: true,
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<AccountBalanceResponse>(
@@ -19,7 +17,7 @@ export default function accountBalance(
       action: 'account_balance',
       data: {
         account,
-        ...options,
+        includeOnlyConfirmed,
       },
     },
     requestOptions
