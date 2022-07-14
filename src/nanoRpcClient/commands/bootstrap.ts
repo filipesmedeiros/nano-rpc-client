@@ -6,16 +6,19 @@ export interface BootstrapResponse {
 
 export default function bootstrap(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  args: {
+    address: string
+    port: string
+  },
+  options?: { id?: string; bypassFrontierConfirmation?: true },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<BootstrapResponse>(
     {
       action: 'bootstrap',
       data: {
-        MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...args,
+        ...options,
       },
     },
     requestOptions
