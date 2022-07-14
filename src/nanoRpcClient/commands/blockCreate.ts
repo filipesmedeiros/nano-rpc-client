@@ -41,6 +41,7 @@ export default function blockCreate(
       action: 'block_create',
       data: {
         ...block,
+        jsonBlock: true,
         ...options,
       },
     },
