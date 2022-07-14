@@ -1,7 +1,7 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface BlockHashResponse {
-  RESPONSE_TYPE: any
+  hash: string
 }
 
 export default function blockHash(
@@ -13,7 +13,7 @@ export default function blockHash(
     representative: string
     balance: bigint | string
     link: string
-    link_as_account: string
+    linkAsAccount: string
     signature: string
     work: string
   },

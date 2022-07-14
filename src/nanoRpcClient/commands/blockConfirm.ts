@@ -1,7 +1,7 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface BlockConfirmResponse {
-  started: 1
+  started: 1n
 }
 
 export default function blockConfirm(

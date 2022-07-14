@@ -2,11 +2,11 @@ import { BlockType } from '../../types/types'
 import { NanoFetcher } from '../fetcher'
 
 export interface BlockInfoResponse {
-  block_account: string
+  blockAccount: string
   amount: bigint
   balance: bigint
   height: bigint
-  local_timestamp: bigint
+  localTimestamp: bigint
   successor: string
   confirmed: boolean
   contents: {
@@ -16,7 +16,7 @@ export interface BlockInfoResponse {
     representative: string
     balance: bigint
     link: string
-    link_as_account: string
+    linkAsAccount: string
     signature: string
     work: string
   }

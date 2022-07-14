@@ -10,7 +10,7 @@ export interface BlockCreateResponse {
     representative: string
     balance: bigint
     link: string
-    link_as_account: string
+    linkAsAccount: string
     signature: string
     work: string
   }
