@@ -3,7 +3,7 @@ import { NanoFetcher } from '../fetcher'
 export interface ConfirmationHistoryResponse {
   confirmation_stats: {
     count: bigint
-    average: bigint
+    average?: bigint
   }
   confirmations: {
     hash: string
@@ -18,16 +18,14 @@ export interface ConfirmationHistoryResponse {
 
 export default function confirmationHistory(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  hash?: string,
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<ConfirmationHistoryResponse>(
     {
       action: 'confirmation_history',
       data: {
-        MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        hash,
       },
     },
     requestOptions
