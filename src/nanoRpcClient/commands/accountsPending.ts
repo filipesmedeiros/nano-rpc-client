@@ -29,7 +29,7 @@ export interface AccountsPendingResponse<
  *
  * @param accounts use `as const` to enable autocomplete on the return data
  * @param requestOptions
- * @returns Account balances
+ * @returns Account pendning
  */
 export default function accountsPending<
   Accounts extends readonly string[],

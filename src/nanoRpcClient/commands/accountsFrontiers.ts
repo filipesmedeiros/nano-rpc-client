@@ -14,7 +14,7 @@ export interface AccountsFrontiersResponse<Accounts extends readonly string[]> {
  *
  * @param accounts use `as const` to enable autocomplete on the return data
  * @param requestOptions
- * @returns Account balances
+ * @returns Account frontiers
  */
 export default function accountsFrontiers<Accounts extends readonly string[]>(
   this: NanoFetcher,

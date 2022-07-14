@@ -1,21 +1,22 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface BootstrapLazyResponse {
-  RESPONSE_TYPE: any
+  started: 1n | 0n
+  keyInserted: 1n | 0n
 }
 
 export default function bootstrapLazy(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  hash: string,
+  options?: { id?: string; force?: true },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<BootstrapLazyResponse>(
     {
       action: 'bootstrap_lazy',
       data: {
-        MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        hash,
+        ...options,
       },
     },
     requestOptions

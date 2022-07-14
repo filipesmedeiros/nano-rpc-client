@@ -50,6 +50,13 @@ export type BlocksInfoResponse<
     }
   : {}
 
+/**
+ *
+ * @param hashes use `as const` to enable autocomplete on the return data
+ * @param options
+ * @param requestOptions
+ * @returns Blocks
+ */
 export default function blocksInfo<
   Options extends {
     pending?: true

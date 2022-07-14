@@ -16,6 +16,12 @@ export interface BlocksResponse<Hashes extends readonly string[]> {
   }
 }
 
+/**
+ *
+ * @param hashes use `as const` to enable autocomplete on the return data
+ * @param requestOptions
+ * @returns Blocks
+ */
 export default function blocks(
   this: NanoFetcher,
   hashes: readonly string[],
