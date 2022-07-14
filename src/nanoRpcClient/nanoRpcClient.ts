@@ -47,7 +47,6 @@ import keyExpand from './commands/keyExpand'
 import ledger from './commands/ledger'
 import nodeId from './commands/nodeId'
 import nodeIdDelete from './commands/nodeIdDelete'
-import optional from './commands/optional'
 import passwordChange from './commands/passwordChange'
 import passwordEnter from './commands/passwordEnter'
 import passwordValid from './commands/passwordValid'
@@ -189,7 +188,6 @@ export class NanoRpcClient extends NanoFetcher {
   public accountRemove = accountRemove
   public accountRepresentativeSet = accountRepresentativeSet
   public accountsCreate = accountsCreate
-  public optional = optional
   public wallet = wallet
   public passwordChange = passwordChange
   public passwordEnter = passwordEnter
