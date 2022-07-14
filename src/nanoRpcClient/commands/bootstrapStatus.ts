@@ -1,14 +1,14 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface BootstrapStatusResponse {
-  bootstrap_threads: bigint
-  running_attempts_count: bigint
-  total_attempts_count: bigint
+  bootstrapThreads: bigint
+  runningAttemptsCount: bigint
+  totalAttemptsCount: bigint
   connections: {
     clients: bigint
     connections: bigint
     idle: bigint
-    target_connections: bigint
+    targetConnections: bigint
     pulls: bigint
   }
   attempts: {
@@ -16,16 +16,16 @@ export interface BootstrapStatusResponse {
     mode: 'lazy' | 'legacy'
     started: boolean
     pulling: bigint
-    total_blocks: bigint
-    requeued_pulls: bigint
-    lazy_blocks: bigint
-    lazy_state_backlog: bigint
-    lazy_balances: bigint
-    lazy_destinations: bigint
-    lazy_undefined_links: bigint
-    lazy_pulls: bigint
-    lazy_keys: bigint
-    lazy_key_1: string
+    totalBlocks: bigint
+    requeuedPulls: bigint
+    lazyBlocks: bigint
+    lazyStateBacklog: bigint
+    lazyBalances: bigint
+    lazyDestinations: bigint
+    lazyUndefinedLinks: bigint
+    lazyPulls: bigint
+    lazyKeys: bigint
+    lazyKey1: string
     duration: bigint
   }[]
 }

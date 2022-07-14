@@ -9,12 +9,12 @@ const isObject = function (object: object) {
 }
 
 const toCamel = (string: string) =>
-  string.replace(/([-_][a-z])/gi, substring =>
+  string.replace(/([-_][a-z0-9])/gi, substring =>
     substring.toUpperCase().replace('-', '').replace('_', '')
   )
 
 const toSnake = (string: string) =>
-  string.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`)
+  string.replace(/[A-Z]/gi, letter => `_${letter.toLowerCase()}`)
 
 const transformObjectKeys = (
   object: Record<string, any>,

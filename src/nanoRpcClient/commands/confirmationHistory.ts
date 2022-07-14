@@ -1,7 +1,19 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface ConfirmationHistoryResponse {
-  RESPONSE_TYPE: any
+  confirmation_stats: {
+    count: bigint
+    average: bigint
+  }
+  confirmations: {
+    hash: string
+    duration: bigint
+    time: bigint
+    tally: bigint
+    blocks: bigint
+    voters: bigint
+    requestCount: bigint
+  }[]
 }
 
 export default function confirmationHistory(
