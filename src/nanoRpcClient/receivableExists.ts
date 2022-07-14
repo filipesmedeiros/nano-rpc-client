@@ -1,0 +1,23 @@
+import { NanoFetcher } from './fetcher'
+
+export interface ReceivableExistsResponse {
+  RESPONSE_TYPE: any
+}
+
+export default function receivableExists(
+  this: NanoFetcher,
+  MAIN_ARG: string,
+  OPTIONAL_ARGS: {},
+  requestOptions?: { abortSignal: AbortSignal }
+) {
+  return this.fetch<ReceivableExistsResponse>(
+    {
+      action: 'receivable_exists',
+      data: {
+        MAIN_ARG,
+        ...OPTIONAL_ARGS
+      },
+    },
+    requestOptions
+  )
+}

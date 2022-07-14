@@ -1,24 +1,117 @@
 import accountBalance from './accountBalance'
 import accountBlockCount from './accountBlockCount'
+import accountCreate from './accountCreate'
 import accountGet from './accountGet'
 import accountHistory from './accountHistory'
 import accountInfo from './accountInfo'
 import accountKey from './accountKey'
+import accountList from './accountList'
+import accountMove from './accountMove'
+import accountRemove from './accountRemove'
 import accountRepresentative from './accountRepresentative'
+import accountRepresentativeSet from './accountRepresentativeSet'
 import accountWeight from './accountWeight'
 import accountsBalances from './accountsBalances'
+import accountsCreate from './accountsCreate'
 import accountsFrontiers from './accountsFrontiers'
 import accountsPending from './accountsPending'
 import accountsRepresentatives from './accountsRepresentatives'
 import blockAccount from './blockAccount'
 import blockConfirm from './blockConfirm'
+import blockCount from './blockCount'
+import blockCreate from './blockCreate'
+import blockHash from './blockHash'
+import blockInfo from './blockInfo'
+import blocks from './blocks'
+import blocksInfo from './blocksInfo'
+import bootstrap from './bootstrap'
+import bootstrapAny from './bootstrapAny'
+import bootstrapLazy from './bootstrapLazy'
+import bootstrapStatus from './bootstrapStatus'
+import chain from './chain'
+import confirmationActive from './confirmationActive'
+import confirmationHeightCurrentlyProcessing from './confirmationHeightCurrentlyProcessing'
+import confirmationHistory from './confirmationHistory'
+import confirmationInfo from './confirmationInfo'
+import confirmationQuorum from './confirmationQuorum'
+import databaseTxnTracker from './databaseTxnTracker'
+import delegators from './delegators'
+import delegatorsCount from './delegatorsCount'
+import deterministicKey from './deterministicKey'
+import epochUpgrade from './epochUpgrade'
 import { NanoFetcher } from './fetcher'
+import frontierCount from './frontierCount'
+import frontiers from './frontiers'
+import keepalive from './keepalive'
+import keyCreate from './keyCreate'
+import keyExpand from './keyExpand'
+import ledger from './ledger'
+import nodeId from './nodeId'
+import nodeIdDelete from './nodeIdDelete'
+import optional from './optional'
+import passwordChange from './passwordChange'
+import passwordEnter from './passwordEnter'
+import passwordValid from './passwordValid'
+import peers from './peers'
+import process from './process'
+import receivable from './receivable'
+import receivableExists from './receivableExists'
+import receive from './receive'
+import receiveMinimum from './receiveMinimum'
+import receiveMinimumSet from './receiveMinimumSet'
+import representatives from './representatives'
+import representativesOnline from './representativesOnline'
+import republish from './republish'
+import searchPending from './searchPending'
+import searchPendingAll from './searchPendingAll'
+import send from './send'
+import sign from './sign'
+import stats from './stats'
+import statsClear from './statsClear'
+import stop from './stop'
+import successors from './successors'
+import telemetry from './telemetry'
+import unchecked from './unchecked'
+import uncheckedClear from './uncheckedClear'
+import uncheckedGet from './uncheckedGet'
+import uncheckedKeys from './uncheckedKeys'
+import unopened from './unopened'
+import uptime from './uptime'
+import validateAccountNumber from './validateAccountNumber'
+import version from './version'
+import wallet from './wallet'
+import walletAdd from './walletAdd'
+import walletAddWatch from './walletAddWatch'
+import walletBalances from './walletBalances'
+import walletChangeSeed from './walletChangeSeed'
+import walletContains from './walletContains'
+import walletCreate from './walletCreate'
+import walletDestroy from './walletDestroy'
+import walletExport from './walletExport'
+import walletFrontiers from './walletFrontiers'
+import walletHistory from './walletHistory'
+import walletInfo from './walletInfo'
+import walletLedger from './walletLedger'
+import walletLock from './walletLock'
+import walletLocked from './walletLocked'
+import walletPending from './walletPending'
+import walletRepresentative from './walletRepresentative'
+import walletRepresentativeSet from './walletRepresentativeSet'
+import walletRepublish from './walletRepublish'
+import walletWorkGet from './walletWorkGet'
+import workCancel from './workCancel'
+import workGenerate from './workGenerate'
+import workGet from './workGet'
+import workPeerAdd from './workPeerAdd'
+import workPeers from './workPeers'
+import workPeersClear from './workPeersClear'
+import workSet from './workSet'
+import workValidate from './workValidate'
 
 export class NanoRpcClient extends NanoFetcher {
   constructor(rpcBaseUrl?: string, fetcher?: typeof fetch) {
     super(rpcBaseUrl, fetcher)
   }
-
   public accountBalance = accountBalance
   public accountBlockCount = accountBlockCount
   public accountGet = accountGet
@@ -33,4 +126,99 @@ export class NanoRpcClient extends NanoFetcher {
   public accountsRepresentatives = accountsRepresentatives
   public blockAccount = blockAccount
   public blockConfirm = blockConfirm
-} // here
+  public blockCount = blockCount
+  public blockCreate = blockCreate
+  public blockHash = blockHash
+  public blockInfo = blockInfo
+  public blocks = blocks
+  public blocksInfo = blocksInfo
+  public bootstrap = bootstrap
+  public bootstrapAny = bootstrapAny
+  public bootstrapLazy = bootstrapLazy
+  public bootstrapStatus = bootstrapStatus
+  public chain = chain
+  public confirmationActive = confirmationActive
+  public confirmationHeightCurrentlyProcessing =
+    confirmationHeightCurrentlyProcessing
+  public confirmationHistory = confirmationHistory
+  public confirmationInfo = confirmationInfo
+  public confirmationQuorum = confirmationQuorum
+  public databaseTxnTracker = databaseTxnTracker
+  public delegators = delegators
+  public delegatorsCount = delegatorsCount
+  public deterministicKey = deterministicKey
+  public epochUpgrade = epochUpgrade
+  public frontierCount = frontierCount
+  public frontiers = frontiers
+  public keepalive = keepalive
+  public keyCreate = keyCreate
+  public keyExpand = keyExpand
+  public ledger = ledger
+  public nodeId = nodeId
+  public nodeIdDelete = nodeIdDelete
+  public peers = peers
+  public process = process
+  public receivable = receivable
+  public receivableExists = receivableExists
+  public representatives = representatives
+  public representativesOnline = representativesOnline
+  public republish = republish
+  public sign = sign
+  public stats = stats
+  public statsClear = statsClear
+  public stop = stop
+  public successors = successors
+  public telemetry = telemetry
+  public validateAccountNumber = validateAccountNumber
+  public version = version
+  public unchecked = unchecked
+  public uncheckedClear = uncheckedClear
+  public uncheckedGet = uncheckedGet
+  public uncheckedKeys = uncheckedKeys
+  public unopened = unopened
+  public uptime = uptime
+  public workCancel = workCancel
+  public workGenerate = workGenerate
+  public workPeerAdd = workPeerAdd
+  public workPeers = workPeers
+  public workPeersClear = workPeersClear
+  public workValidate = workValidate
+  public accountCreate = accountCreate
+  public accountList = accountList
+  public accountMove = accountMove
+  public accountRemove = accountRemove
+  public accountRepresentativeSet = accountRepresentativeSet
+  public accountsCreate = accountsCreate
+  public optional = optional
+  public wallet = wallet
+  public passwordChange = passwordChange
+  public passwordEnter = passwordEnter
+  public passwordValid = passwordValid
+  public receive = receive
+  public receiveMinimum = receiveMinimum
+  public receiveMinimumSet = receiveMinimumSet
+  public searchPending = searchPending
+  public searchPendingAll = searchPendingAll
+  public send = send
+  public walletAdd = walletAdd
+  public walletAddWatch = walletAddWatch
+  public walletBalances = walletBalances
+  public walletChangeSeed = walletChangeSeed
+  public walletContains = walletContains
+  public walletCreate = walletCreate
+  public walletDestroy = walletDestroy
+  public walletExport = walletExport
+  public walletFrontiers = walletFrontiers
+  public walletHistory = walletHistory
+  public walletInfo = walletInfo
+  public walletLedger = walletLedger
+  public walletLock = walletLock
+  public walletLocked = walletLocked
+  public walletPending = walletPending
+  public walletRepresentative = walletRepresentative
+  public walletRepresentativeSet = walletRepresentativeSet
+  public walletRepublish = walletRepublish
+  public walletWorkGet = walletWorkGet
+  public workGet = workGet
+  public workSet = workSet
+}
