@@ -7,7 +7,7 @@ export interface AccountRepresentativeSetResponse {
 export default function accountRepresentativeSet(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<AccountRepresentativeSetResponse>(
@@ -15,7 +15,7 @@ export default function accountRepresentativeSet(
       action: 'account_representative_set',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

@@ -7,7 +7,7 @@ export interface SearchPendingAllResponse {
 export default function searchPendingAll(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<SearchPendingAllResponse>(
@@ -15,7 +15,7 @@ export default function searchPendingAll(
       action: 'search_pending_all',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

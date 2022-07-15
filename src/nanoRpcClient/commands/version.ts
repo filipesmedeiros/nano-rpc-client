@@ -7,7 +7,7 @@ export interface VersionResponse {
 export default function version(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<VersionResponse>(
@@ -15,7 +15,7 @@ export default function version(
       action: 'version',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

@@ -7,7 +7,7 @@ export interface PeersResponse {
 export default function peers(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<PeersResponse>(
@@ -15,7 +15,7 @@ export default function peers(
       action: 'peers',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

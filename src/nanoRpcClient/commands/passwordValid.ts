@@ -7,7 +7,7 @@ export interface PasswordValidResponse {
 export default function passwordValid(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<PasswordValidResponse>(
@@ -15,7 +15,7 @@ export default function passwordValid(
       action: 'password_valid',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

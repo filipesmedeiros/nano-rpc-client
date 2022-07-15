@@ -7,7 +7,7 @@ export interface WorkPeersResponse {
 export default function workPeers(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WorkPeersResponse>(
@@ -15,7 +15,7 @@ export default function workPeers(
       action: 'work_peers',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

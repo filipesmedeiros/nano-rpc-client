@@ -7,7 +7,7 @@ export interface ReceiveResponse {
 export default function receive(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<ReceiveResponse>(
@@ -15,7 +15,7 @@ export default function receive(
       action: 'receive',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

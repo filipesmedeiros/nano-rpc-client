@@ -7,7 +7,7 @@ export interface ReceiveMinimumSetResponse {
 export default function receiveMinimumSet(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<ReceiveMinimumSetResponse>(
@@ -15,7 +15,7 @@ export default function receiveMinimumSet(
       action: 'receive_minimum_set',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

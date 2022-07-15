@@ -7,7 +7,7 @@ export interface WalletRepresentativeSetResponse {
 export default function walletRepresentativeSet(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletRepresentativeSetResponse>(
@@ -15,7 +15,7 @@ export default function walletRepresentativeSet(
       action: 'wallet_representative_set',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

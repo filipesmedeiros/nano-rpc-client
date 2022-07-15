@@ -7,7 +7,7 @@ export interface AccountRemoveResponse {
 export default function accountRemove(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<AccountRemoveResponse>(
@@ -15,7 +15,7 @@ export default function accountRemove(
       action: 'account_remove',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

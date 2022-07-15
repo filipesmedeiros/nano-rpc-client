@@ -7,7 +7,7 @@ export interface ConfirmationInfoResponse {
 export default function confirmationInfo(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<ConfirmationInfoResponse>(
@@ -15,7 +15,7 @@ export default function confirmationInfo(
       action: 'confirmation_info',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

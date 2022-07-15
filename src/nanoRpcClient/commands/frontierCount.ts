@@ -7,7 +7,7 @@ export interface FrontierCountResponse {
 export default function frontierCount(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<FrontierCountResponse>(
@@ -15,7 +15,7 @@ export default function frontierCount(
       action: 'frontier_count',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

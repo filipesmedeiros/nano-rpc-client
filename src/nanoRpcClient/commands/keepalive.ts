@@ -7,7 +7,7 @@ export interface KeepaliveResponse {
 export default function keepalive(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<KeepaliveResponse>(
@@ -15,7 +15,7 @@ export default function keepalive(
       action: 'keepalive',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

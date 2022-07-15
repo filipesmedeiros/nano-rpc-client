@@ -7,7 +7,7 @@ export interface ProcessResponse {
 export default function process(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<ProcessResponse>(
@@ -15,7 +15,7 @@ export default function process(
       action: 'process',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

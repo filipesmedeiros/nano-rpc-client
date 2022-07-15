@@ -7,7 +7,7 @@ export interface EpochUpgradeResponse {
 export default function epochUpgrade(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<EpochUpgradeResponse>(
@@ -15,7 +15,7 @@ export default function epochUpgrade(
       action: 'epoch_upgrade',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

@@ -7,7 +7,7 @@ export interface AccountsCreateResponse {
 export default function accountsCreate(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<AccountsCreateResponse>(
@@ -15,7 +15,7 @@ export default function accountsCreate(
       action: 'accounts_create',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

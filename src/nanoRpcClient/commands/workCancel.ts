@@ -7,7 +7,7 @@ export interface WorkCancelResponse {
 export default function workCancel(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WorkCancelResponse>(
@@ -15,7 +15,7 @@ export default function workCancel(
       action: 'work_cancel',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

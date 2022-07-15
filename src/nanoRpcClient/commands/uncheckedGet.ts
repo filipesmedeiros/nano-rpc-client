@@ -7,7 +7,7 @@ export interface UncheckedGetResponse {
 export default function uncheckedGet(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<UncheckedGetResponse>(
@@ -15,7 +15,7 @@ export default function uncheckedGet(
       action: 'unchecked_get',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

@@ -7,7 +7,7 @@ export interface WalletLockResponse {
 export default function walletLock(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletLockResponse>(
@@ -15,7 +15,7 @@ export default function walletLock(
       action: 'wallet_lock',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

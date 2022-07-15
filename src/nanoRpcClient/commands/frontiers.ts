@@ -7,7 +7,7 @@ export interface FrontiersResponse {
 export default function frontiers(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<FrontiersResponse>(
@@ -15,7 +15,7 @@ export default function frontiers(
       action: 'frontiers',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

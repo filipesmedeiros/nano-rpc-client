@@ -7,7 +7,7 @@ export interface WalletPendingResponse {
 export default function walletPending(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletPendingResponse>(
@@ -15,7 +15,7 @@ export default function walletPending(
       action: 'wallet_pending',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

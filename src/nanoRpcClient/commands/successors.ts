@@ -7,7 +7,7 @@ export interface SuccessorsResponse {
 export default function successors(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<SuccessorsResponse>(
@@ -15,7 +15,7 @@ export default function successors(
       action: 'successors',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

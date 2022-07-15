@@ -7,7 +7,7 @@ export interface WorkPeersClearResponse {
 export default function workPeersClear(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WorkPeersClearResponse>(
@@ -15,7 +15,7 @@ export default function workPeersClear(
       action: 'work_peers_clear',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

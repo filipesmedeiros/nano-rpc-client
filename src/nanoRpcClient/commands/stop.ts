@@ -7,7 +7,7 @@ export interface StopResponse {
 export default function stop(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<StopResponse>(
@@ -15,7 +15,7 @@ export default function stop(
       action: 'stop',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

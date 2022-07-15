@@ -7,7 +7,7 @@ export interface WorkPeerAddResponse {
 export default function workPeerAdd(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WorkPeerAddResponse>(
@@ -15,7 +15,7 @@ export default function workPeerAdd(
       action: 'work_peer_add',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

@@ -7,7 +7,7 @@ export interface RepresentativesOnlineResponse {
 export default function representativesOnline(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<RepresentativesOnlineResponse>(
@@ -15,7 +15,7 @@ export default function representativesOnline(
       action: 'representatives_online',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

@@ -7,7 +7,7 @@ export interface WalletLedgerResponse {
 export default function walletLedger(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletLedgerResponse>(
@@ -15,7 +15,7 @@ export default function walletLedger(
       action: 'wallet_ledger',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

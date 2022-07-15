@@ -7,7 +7,7 @@ export interface WalletAddResponse {
 export default function walletAdd(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletAddResponse>(
@@ -15,7 +15,7 @@ export default function walletAdd(
       action: 'wallet_add',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

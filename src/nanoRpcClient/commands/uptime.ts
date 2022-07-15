@@ -7,7 +7,7 @@ export interface UptimeResponse {
 export default function uptime(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<UptimeResponse>(
@@ -15,7 +15,7 @@ export default function uptime(
       action: 'uptime',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

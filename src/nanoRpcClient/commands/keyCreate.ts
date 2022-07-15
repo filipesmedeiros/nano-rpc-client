@@ -7,7 +7,7 @@ export interface KeyCreateResponse {
 export default function keyCreate(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<KeyCreateResponse>(
@@ -15,7 +15,7 @@ export default function keyCreate(
       action: 'key_create',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

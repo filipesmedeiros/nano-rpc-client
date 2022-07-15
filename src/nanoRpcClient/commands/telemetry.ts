@@ -7,7 +7,7 @@ export interface TelemetryResponse {
 export default function telemetry(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<TelemetryResponse>(
@@ -15,7 +15,7 @@ export default function telemetry(
       action: 'telemetry',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

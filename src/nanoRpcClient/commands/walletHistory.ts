@@ -7,7 +7,7 @@ export interface WalletHistoryResponse {
 export default function walletHistory(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletHistoryResponse>(
@@ -15,7 +15,7 @@ export default function walletHistory(
       action: 'wallet_history',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

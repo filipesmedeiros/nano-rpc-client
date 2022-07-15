@@ -7,7 +7,7 @@ export interface WorkValidateResponse {
 export default function workValidate(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WorkValidateResponse>(
@@ -15,7 +15,7 @@ export default function workValidate(
       action: 'work_validate',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

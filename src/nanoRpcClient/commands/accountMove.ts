@@ -7,7 +7,7 @@ export interface AccountMoveResponse {
 export default function accountMove(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<AccountMoveResponse>(
@@ -15,7 +15,7 @@ export default function accountMove(
       action: 'account_move',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

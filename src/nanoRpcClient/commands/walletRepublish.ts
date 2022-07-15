@@ -7,7 +7,7 @@ export interface WalletRepublishResponse {
 export default function walletRepublish(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletRepublishResponse>(
@@ -15,7 +15,7 @@ export default function walletRepublish(
       action: 'wallet_republish',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

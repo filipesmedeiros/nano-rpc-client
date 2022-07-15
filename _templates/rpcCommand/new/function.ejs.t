@@ -11,7 +11,7 @@ export interface <%= PascalName %>Response {
 export default function <%= h.changeCase.camel(name) %>(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<<%= PascalName %>Response>(
@@ -19,7 +19,7 @@ export default function <%= h.changeCase.camel(name) %>(
       action: '<%= name %>',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS
+        ...options
       },
     },
     requestOptions

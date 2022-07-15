@@ -7,7 +7,7 @@ export interface WalletWorkGetResponse {
 export default function walletWorkGet(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletWorkGetResponse>(
@@ -15,7 +15,7 @@ export default function walletWorkGet(
       action: 'wallet_work_get',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

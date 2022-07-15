@@ -7,7 +7,7 @@ export interface ValidateAccountNumberResponse {
 export default function validateAccountNumber(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<ValidateAccountNumberResponse>(
@@ -15,7 +15,7 @@ export default function validateAccountNumber(
       action: 'validate_account_number',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

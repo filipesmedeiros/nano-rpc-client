@@ -7,7 +7,7 @@ export interface KeyExpandResponse {
 export default function keyExpand(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<KeyExpandResponse>(
@@ -15,7 +15,7 @@ export default function keyExpand(
       action: 'key_expand',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

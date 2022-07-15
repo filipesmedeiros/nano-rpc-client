@@ -7,7 +7,7 @@ export interface DelegatorsResponse {
 export default function delegators(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<DelegatorsResponse>(
@@ -15,7 +15,7 @@ export default function delegators(
       action: 'delegators',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

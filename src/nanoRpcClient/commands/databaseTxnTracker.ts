@@ -7,7 +7,7 @@ export interface DatabaseTxnTrackerResponse {
 export default function databaseTxnTracker(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<DatabaseTxnTrackerResponse>(
@@ -15,7 +15,7 @@ export default function databaseTxnTracker(
       action: 'database_txn_tracker',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

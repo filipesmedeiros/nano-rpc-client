@@ -7,7 +7,7 @@ export interface PasswordChangeResponse {
 export default function passwordChange(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<PasswordChangeResponse>(
@@ -15,7 +15,7 @@ export default function passwordChange(
       action: 'password_change',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

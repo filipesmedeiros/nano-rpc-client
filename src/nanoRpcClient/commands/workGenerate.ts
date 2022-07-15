@@ -7,7 +7,7 @@ export interface WorkGenerateResponse {
 export default function workGenerate(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WorkGenerateResponse>(
@@ -15,7 +15,7 @@ export default function workGenerate(
       action: 'work_generate',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

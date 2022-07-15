@@ -7,7 +7,7 @@ export interface NodeIdResponse {
 export default function nodeId(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<NodeIdResponse>(
@@ -15,7 +15,7 @@ export default function nodeId(
       action: 'node_id',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

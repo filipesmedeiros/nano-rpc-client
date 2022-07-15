@@ -7,7 +7,7 @@ export interface ConfirmationQuorumResponse {
 export default function confirmationQuorum(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<ConfirmationQuorumResponse>(
@@ -15,7 +15,7 @@ export default function confirmationQuorum(
       action: 'confirmation_quorum',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

@@ -7,7 +7,7 @@ export interface DeterministicKeyResponse {
 export default function deterministicKey(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<DeterministicKeyResponse>(
@@ -15,7 +15,7 @@ export default function deterministicKey(
       action: 'deterministic_key',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

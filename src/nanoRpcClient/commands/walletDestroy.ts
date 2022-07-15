@@ -7,7 +7,7 @@ export interface WalletDestroyResponse {
 export default function walletDestroy(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletDestroyResponse>(
@@ -15,7 +15,7 @@ export default function walletDestroy(
       action: 'wallet_destroy',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

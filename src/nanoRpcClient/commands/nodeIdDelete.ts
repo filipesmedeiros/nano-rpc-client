@@ -7,7 +7,7 @@ export interface NodeIdDeleteResponse {
 export default function nodeIdDelete(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<NodeIdDeleteResponse>(
@@ -15,7 +15,7 @@ export default function nodeIdDelete(
       action: 'node_id_delete',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

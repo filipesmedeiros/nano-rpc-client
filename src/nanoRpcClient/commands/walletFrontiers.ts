@@ -7,7 +7,7 @@ export interface WalletFrontiersResponse {
 export default function walletFrontiers(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletFrontiersResponse>(
@@ -15,7 +15,7 @@ export default function walletFrontiers(
       action: 'wallet_frontiers',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

@@ -7,7 +7,7 @@ export interface WalletChangeSeedResponse {
 export default function walletChangeSeed(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<WalletChangeSeedResponse>(
@@ -15,7 +15,7 @@ export default function walletChangeSeed(
       action: 'wallet_change_seed',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

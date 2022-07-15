@@ -7,7 +7,7 @@ export interface SendResponse {
 export default function send(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<SendResponse>(
@@ -15,7 +15,7 @@ export default function send(
       action: 'send',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions

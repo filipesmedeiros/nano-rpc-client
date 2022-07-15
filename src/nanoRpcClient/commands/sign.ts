@@ -7,7 +7,7 @@ export interface SignResponse {
 export default function sign(
   this: NanoFetcher,
   MAIN_ARG: string,
-  OPTIONAL_ARGS: {},
+  options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<SignResponse>(
@@ -15,7 +15,7 @@ export default function sign(
       action: 'sign',
       data: {
         MAIN_ARG,
-        ...OPTIONAL_ARGS,
+        ...options,
       },
     },
     requestOptions
