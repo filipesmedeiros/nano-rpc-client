@@ -1,20 +1,23 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface AccountRepresentativeSetResponse {
-  RESPONSE_TYPE: any
+  block: string
 }
 
 export default function accountRepresentativeSet(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  options?: {},
+  args: {
+    wallet: string
+    account: string
+  },
+  options?: { work?: string },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<AccountRepresentativeSetResponse>(
     {
       action: 'account_representative_set',
       data: {
-        MAIN_ARG,
+        ...args,
         ...options,
       },
     },
