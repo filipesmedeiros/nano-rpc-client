@@ -1,20 +1,22 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface DelegatorsResponse {
-  RESPONSE_TYPE: any
+  delegators: {
+    [account: string]: bigint
+  }
 }
 
 export default function delegators(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  options?: {},
+  account: string,
+  options?: { threshold?: bigint; count?: number; start: string },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<DelegatorsResponse>(
     {
       action: 'delegators',
       data: {
-        MAIN_ARG,
+        account,
         ...options,
       },
     },
