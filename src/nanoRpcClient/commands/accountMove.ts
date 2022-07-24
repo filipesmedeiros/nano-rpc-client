@@ -1,21 +1,24 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface AccountMoveResponse {
-  RESPONSE_TYPE: any
+  moved: 1
 }
 
 export default function accountMove(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  options?: {},
+  args: {
+    wallet: string
+    source: string
+    accounts: string[]
+  },
+
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<AccountMoveResponse>(
     {
       action: 'account_move',
       data: {
-        MAIN_ARG,
-        ...options,
+        ...args,
       },
     },
     requestOptions
