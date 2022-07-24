@@ -1,20 +1,23 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface AccountsCreateResponse {
-  RESPONSE_TYPE: any
+  accounts: string[]
 }
 
 export default function accountsCreate(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  options?: {},
+  args: {
+    wallet: string
+    count: number
+  },
+  options?: { work?: true },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<AccountsCreateResponse>(
     {
       action: 'accounts_create',
       data: {
-        MAIN_ARG,
+        ...args,
         ...options,
       },
     },
