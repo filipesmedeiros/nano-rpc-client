@@ -1,21 +1,24 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface FrontiersResponse {
-  RESPONSE_TYPE: any
+  frontiers: {
+    [account: string]: string
+  }
 }
 
 export default function frontiers(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  options?: {},
+  args: {
+    account: string
+    count: number
+  },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<FrontiersResponse>(
     {
       action: 'frontiers',
       data: {
-        MAIN_ARG,
-        ...options,
+        ...args,
       },
     },
     requestOptions
