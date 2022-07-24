@@ -1,21 +1,22 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface AccountRemoveResponse {
-  RESPONSE_TYPE: any
+  removed: 1
 }
 
 export default function accountRemove(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  options?: {},
+  args: {
+    wallet: string
+    account: string
+  },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<AccountRemoveResponse>(
     {
       action: 'account_remove',
       data: {
-        MAIN_ARG,
-        ...options,
+        ...args,
       },
     },
     requestOptions
