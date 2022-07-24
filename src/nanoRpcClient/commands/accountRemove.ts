@@ -1,7 +1,7 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface AccountRemoveResponse {
-  removed: 1
+  removed: 1n
 }
 
 export default function accountRemove(

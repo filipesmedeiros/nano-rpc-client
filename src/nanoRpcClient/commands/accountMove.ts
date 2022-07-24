@@ -1,7 +1,7 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface AccountMoveResponse {
-  moved: 1
+  moved: 1n
 }
 
 export default function accountMove(

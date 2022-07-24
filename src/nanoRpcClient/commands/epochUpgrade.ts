@@ -1,20 +1,23 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface EpochUpgradeResponse {
-  RESPONSE_TYPE: any
+  started: 1n
 }
 
 export default function epochUpgrade(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  options?: {},
+  args: {
+    epoch: number
+    key: string
+  },
+  options?: { count?: number; threads?: number },
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<EpochUpgradeResponse>(
     {
       action: 'epoch_upgrade',
       data: {
-        MAIN_ARG,
+        ...args,
         ...options,
       },
     },

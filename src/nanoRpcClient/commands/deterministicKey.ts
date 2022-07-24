@@ -1,12 +1,17 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface DeterministicKeyResponse {
-  RESPONSE_TYPE: any
+  private: string
+  public: string
+  account: string
 }
 
 export default function deterministicKey(
   this: NanoFetcher,
-  MAIN_ARG: string,
+  args: {
+    seed: string
+    index: number
+  },
   options?: {},
   requestOptions?: { abortSignal: AbortSignal }
 ) {
@@ -14,8 +19,7 @@ export default function deterministicKey(
     {
       action: 'deterministic_key',
       data: {
-        MAIN_ARG,
-        ...options,
+        ...args,
       },
     },
     requestOptions
