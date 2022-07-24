@@ -8,14 +8,14 @@ export interface AccountHistoryResponse<Raw extends boolean = false> {
         type: 'state'
         subtype: BlockType
         account: string
-        amount: NumberString
-        localTimestamp: NumberString
-        height: NumberString
+        amount: bigint
+        localTimestamp: bigint
+        height: bigint
         hash: string
         confirmed: BooleanString
         previous: string
         representative: string
-        balance: NumberString
+        balance: bigint
         link: string
         linkAsAccount: string
         signature: string
@@ -24,9 +24,9 @@ export interface AccountHistoryResponse<Raw extends boolean = false> {
     : {
         type: BlockType
         account: string
-        amount: NumberString
-        localTimestamp: NumberString
-        height: NumberString
+        amount: bigint
+        localTimestamp: bigint
+        height: bigint
         hash: string
         confirmed: BooleanString
       })[]
