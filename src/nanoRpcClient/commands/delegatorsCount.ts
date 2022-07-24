@@ -1,21 +1,19 @@
 import { NanoFetcher } from '../fetcher'
 
 export interface DelegatorsCountResponse {
-  RESPONSE_TYPE: any
+  count: number
 }
 
 export default function delegatorsCount(
   this: NanoFetcher,
-  MAIN_ARG: string,
-  options?: {},
+  account: string,
   requestOptions?: { abortSignal: AbortSignal }
 ) {
   return this.fetch<DelegatorsCountResponse>(
     {
       action: 'delegators_count',
       data: {
-        MAIN_ARG,
-        ...options,
+        account,
       },
     },
     requestOptions
